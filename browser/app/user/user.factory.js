@@ -52,6 +52,7 @@ app.factory('User', function ($http, Story) {
 	};
 
 	User.prototype.destroy = function () {
+		console.log(this.getUrl());
 		return $http.delete(this.getUrl());
 	};
 
