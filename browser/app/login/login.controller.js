@@ -7,9 +7,9 @@ app.controller('loginCtrl', function ($scope, LoginFactory, $state) {
 	console.log($scope.user);
 
 		LoginFactory.authorize($scope.user)
-					.then(function(response) {
-						$state.go('home');
-					});
+			.then(function(response) {
+				$state.go('stories');
+			});
 
 	};
 
