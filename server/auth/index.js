@@ -4,9 +4,7 @@ var router = require('express').Router(),
         _ = require('lodash');
 var session = require('express-session');
 var User = require('../api/users/user.model');
-
-
-
+var passport = require('passport');
 
 router.post('/login', function (req, res, next) {
     User.findOne({
@@ -38,6 +36,19 @@ router.use('/signout', function (req, res, next) {
     req.session.destroy();
     res.sendStatus(200);
 });
+
+//google authentication and login 
+router.get('/google', passport.authenticate('google', { scope : 'email' }));
+
+// handle the callback after google has authenticated the user
+router.get('/google/callback',
+  passport.authenticate('google', {
+    successRedirect : '/',
+    failureRedirect : '/'
+  }));
+
+
+
 
 
 router.use(function (req, res, next) {
