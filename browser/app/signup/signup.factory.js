@@ -1,16 +1,16 @@
-'use strict';
+// 'use strict';
 
-app.factory('SignupFactory', function ($http) {
-    var SignupFactory = {};
+// app.factory('SignupFactory', function ($http) {
+//     var SignupFactory = {};
 
-    SignupFactory.createNewUser = function (newuser) {
-        return $http.post('/signup', newuser)
-                    .then(function(response) {
-                        console.log(response);
-                        return response;
-                    });
-    };
+//     SignupFactory.createNewUser = function (newuser) {
+//         return $http.post('/auth/signup', newuser) //why need /api for signup and not login
+//         .then(function(response) {
+//             console.log(response);
+//             return response;
+//         });
+//     };
 
-    return SignupFactory;
+//     return SignupFactory;
 
-});
+// });
